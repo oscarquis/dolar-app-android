@@ -7,6 +7,10 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 const app = express();
 app.use(cors());
 
+
+
+
+
 // 🔹 BINANCE P2P BOLIVIA
 async function getP2P_BOB() {
   try {
@@ -117,18 +121,10 @@ async function getP2P_ARS() {
   }
 }
 
-// 🔹 REFERENCIAL PRO (PROMEDIO)
-/*function getReferencial(p2p) {
-  if (!p2p) return null;
 
-  let promedio = (p2p.compra + p2p.venta) / 2;
 
-  return {
-    compra: promedio * 0.98,
-    venta: promedio * 1.00
-  };
-}
-*/
+app.use(express.static(__dirname));
+
 // 🔹 RUTA PRINCIPAL
 app.get("/dolar", async (req, res) => {
   try {
@@ -142,14 +138,6 @@ app.get("/dolar", async (req, res) => {
     // 🇧🇴 BOLIVIA P2P
     const p2p = await getP2P_BOB();
 
-    // 🔥 REFERENCIAL AUTOMÁTICO
-/*    let ref = getReferencial(p2p);
-
-    // fallback por si falla
-    if (!ref) {
-      ref = { compra: 9.7, venta: 9.9 };
-    }
-*/
 
 
 
