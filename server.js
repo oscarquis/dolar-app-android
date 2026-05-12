@@ -169,7 +169,7 @@ if (
       p2p_bob: p2p,
 
       // 🔥 NUEVO
-  //    bcb_referencial: ref,
+  
 ars_bob: ars_bob
     });
 
