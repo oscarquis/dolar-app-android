@@ -1,100 +1,276 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
 <title>Dólar Pro</title>
 
 <style>
-body {
+
+body{
   background:#0f172a;
-  color:#fff;
+  color:white;
   font-family:Arial;
   text-align:center;
+  margin:0;
+  padding:10px;
 }
 
-.card {
+h2{
+  margin-top:10px;
+}
+
+.card{
   background:#1e293b;
-  margin:10px;
-  padding:15px;
-  border-radius:12px;
+  margin:8px auto;
+  padding:10px;
+  border-radius:10px;
+  max-width:340px;
+  font-size:14px;
 }
-.card1 {
-  background:#1e293b;
-  margin:10px;
-  padding:5px;
-  border-radius:8px;
+
+.compra{
+  color:#00ff99;
+  margin:4px;
 }
-.compra { color:#00ff99; }
-.venta { color:#ff4d4d; }
 
-.up { color:#00ff99; }
-.down { color:#ff4d4d; }
-.equal { color:#aaa; }
+.venta{
+  color:#ff4d4d;
+  margin:4px;
+}
 
-h2 { margin-top:20px; }
+.up{
+  color:#00ff99;
+}
 
+.down{
+  color:#ff4d4d;
+}
+
+.equal{
+  color:#aaa;
+}
+
+a{
+  color:white;
+  text-decoration:none;
+}
+
+.small{
+  font-size:12px;
+  color:#ccc;
+}
 
 </style>
+
 </head>
 
 <body>
 
-<h2>💰 Dólar en Vivo PRO</h2>
-
+<h2>
+💰 Dólar en Vivo PRO
+</h2>
 
 <!-- BLUE -->
+
 <div class="card">
-  <h3>Blue Arg.</h3>
-  <div class="compra">Compra: <span id="blue_c"></span></div>
-  <div class="venta">
-    Venta: <span id="blue_v"></span>
-    <span id="blue_estado"></span>
-  </div>
+
+<h3>
+Blue Arg.
+</h3>
+
+<div class="compra">
+
+Compra:
+<span id="blue_c"></span>
+
+</div>
+
+<div class="venta">
+
+Venta:
+<span id="blue_v"></span>
+
+<span id="blue_estado"></span>
+
+</div>
+
+<div class="small">
+
+10m compra:
+<span id="blue_10m_c"></span>
+
+<br>
+
+10m venta:
+<span id="blue_10m_v"></span>
+
+</div>
+
 </div>
 
 <!-- OFICIAL -->
+
 <div class="card">
-  <h3>Oficial Arg.</h3>
-  <div class="compra">Compra: <span id="oficial_c"></span></div>
-  <div class="venta">
-    Venta: <span id="oficial_v"></span>
-    <span id="oficial_estado"></span>
-  </div>
+
+<h3>
+Oficial Arg.
+</h3>
+
+<div class="compra">
+
+Compra:
+<span id="oficial_c"></span>
+
+</div>
+
+<div class="venta">
+
+Venta:
+<span id="oficial_v"></span>
+
+<span id="oficial_estado"></span>
+
+</div>
+
+<div class="small">
+
+10m compra:
+<span id="oficial_10m_c"></span>
+
+<br>
+
+10m venta:
+<span id="oficial_10m_v"></span>
+
+</div>
+
 </div>
 
 <!-- CRIPTO -->
+
 <div class="card">
-  <h3>Cripto Arg. </h3>
-  <div class="compra">Compra: <span id="cripto_c"></span></div>
-  <div class="venta">
-    Venta: <span id="cripto_v"></span>
-    <span id="cripto_estado"></span>
-  </div>
+
+<h3>
+Cripto Arg.
+</h3>
+
+<div class="compra">
+
+Compra:
+<span id="cripto_c"></span>
+
 </div>
 
-<!-- BOLIVIA -->
-<div class="card">
-  <h3>Bolivia (P2P)</h3>
-  <div class="compra">Compra: <span id="bob_c"></span></div>
-  <div class="venta">
-    Venta: <span id="bob_v"></span>
-    <span id="bob_estado"></span>
-  </div>
+<div class="venta">
+
+Venta:
+<span id="cripto_v"></span>
+
+<span id="cripto_estado"></span>
+
 </div>
-  
-<div class="card">
-  <h3>💱 Peso Argentino → Boliviano</h3>
-  <div class="compra">Compra: <span id="arsbob_c"></span></div>
-  <div class="venta">Venta: <span id="arsbob_v"></span></div>
+
+<div class="small">
+
+10m compra:
+<span id="cripto_10m_c"></span>
+
+<br>
+
+10m venta:
+<span id="cripto_10m_v"></span>
+
 </div>
+
+</div>
+
+<!-- BOB -->
+
+<div class="card">
+
+<h3>
+Bolivia P2P
+</h3>
+
+<div class="compra">
+
+Compra:
+<span id="bob_c"></span>
+
+</div>
+
+<div class="venta">
+
+Venta:
+<span id="bob_v"></span>
+
+<span id="bob_estado"></span>
+
+</div>
+
+<div class="small">
+
+10m compra:
+<span id="bob_10m_c"></span>
+
+<br>
+
+10m venta:
+<span id="bob_10m_v"></span>
+
+</div>
+
+</div>
+
+<!-- ARS BOB -->
+
+<div class="card">
+
+<h3>
+💱 Peso → Bs
+</h3>
+
+<div class="compra">
+
+Compra:
+<span id="arsbob_c"></span>
+
+</div>
+
+<div class="venta">
+
+Venta:
+<span id="arsbob_v"></span>
+
+</div>
+
+<div class="small">
+
+10m compra:
+<span id="arsbob_10m_c"></span>
+
+<br>
+
+10m venta:
+<span id="arsbob_10m_v"></span>
+
+</div>
+
+</div>
+
+
 <a href="https://dolar-grafico-1.onrender.com">
 
 📈 Ver gráficos
 
 </a>
   
-<p id="hora"></p>
 <div class="card1">
   👁
   <img src="https://hits.sh/dolar-app-1.onrender.com.svg?style=flat-square&label=vts" />
@@ -115,156 +291,405 @@ h2 { margin-top:20px; }
      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
    ">
    💬 Conssultas.
+
+
+
 </a>
 
-
+<p id="hora"></p>
 <script>
 
 
-// 🔥 valores anteriores
+// valores anteriores
+
 let prev = {
-  blue: null,
-  oficial: null,
-  cripto: null,
-  bob: null
+
+  blue:null,
+
+  oficial:null,
+
+  cripto:null,
+
+  bob:null
 };
 
-// 🔥 función estado
-function estado(actual, anterior, id) {
-  let el = document.getElementById(id);
+// estado
 
-  if (anterior === null) {
-    el.textContent = " ⏳";
-    el.className = "equal";
+function estado(
+  actual,
+  anterior,
+  id
+){
+
+  let el =
+    document.getElementById(id);
+
+  if(anterior === null){
+
+    el.textContent =
+      "⏳";
+
     return;
   }
 
-  let diff = actual - anterior;
-  let pct = (diff / anterior) * 100;
+  let diff =
+    actual - anterior;
 
-  if (diff > 0) {
-    el.textContent = ` 📈 +${pct.toFixed(2)}%`;
-    el.className = "up";
-  } else if (diff < 0) {
-    el.textContent = ` 📉 ${pct.toFixed(2)}%`;
-    el.className = "down";
-  } else {
-    el.textContent = " ➖ 0%";
-    el.className = "equal";
+  let pct =
+
+    (
+      diff / anterior
+    ) * 100;
+
+  if(diff > 0){
+
+    el.textContent =
+
+      ` 📈 +${pct.toFixed(2)}%`;
+
+    el.className =
+      "up";
+  }
+
+  else if(diff < 0){
+
+    el.textContent =
+
+      ` 📉 ${pct.toFixed(2)}%`;
+
+    el.className =
+      "down";
+  }
+
+  else{
+
+    el.textContent =
+      " ➖ 0%";
+
+    el.className =
+      "equal";
   }
 }
 
-// 🔄 cargar datos
-async function cargar() {
-  try {
-    const res = await fetch("https://dolar-app-1.onrender.com/dolar");
-    const d = await res.json();
+// cargar
 
+async function cargar(){
+
+  try{
+
+    const res =
+      await fetch("/dolar");
+
+    const d =
+      await res.json();
+
+    // =====================
     // BLUE
-    let blue = d.azul.valor_venta;
-    document.getElementById("blue_c").textContent = "$" + d.azul.valor_compra;
-    document.getElementById("blue_v").textContent = "$" + blue;
-    estado(blue, prev.blue, "blue_estado");
+    // =====================
+
+    let blue =
+      d.azul.valor_venta;
+
+    document
+      .getElementById("blue_c")
+      .textContent =
+
+        "$" +
+        d.azul.valor_compra;
+
+    document
+      .getElementById("blue_v")
+      .textContent =
+
+        "$" +
+        blue;
+
+    estado(
+      blue,
+      prev.blue,
+      "blue_estado"
+    );
+
     prev.blue = blue;
 
-    // OFICIAL
-    let oficial = d.oficial.valor_venta;
-    document.getElementById("oficial_c").textContent = "$" + d.oficial.valor_compra;
-    document.getElementById("oficial_v").textContent = "$" + oficial;
-    estado(oficial, prev.oficial, "oficial_estado");
-    prev.oficial = oficial;
+    if(d.hace10m){
 
-// CRIPTO
-if (d.cripto_ars) {
-  let compra = d.cripto_ars.compra;
-  let venta = d.cripto_ars.venta;
+      document
+        .getElementById(
+          "blue_10m_c"
+        )
+        .textContent =
 
-  document.getElementById("cripto_c").textContent = "$" + compra.toFixed(2);
-  document.getElementById("cripto_v").textContent = "$" + venta.toFixed(2);
+          "$" +
+          d.hace10m.blue.compra;
 
-  estado(venta, prev.cripto, "cripto_estado");
-  prev.cripto = venta;
-} else {
-  document.getElementById("cripto_c").textContent = "--";
-  document.getElementById("cripto_v").textContent = "--";
-}
+      document
+        .getElementById(
+          "blue_10m_v"
+        )
+        .textContent =
 
-    // BOLIVIA
-    if (d.p2p_bob) {
-      let venta = d.p2p_bob.venta;
-      document.getElementById("bob_c").textContent = "Bs " + d.p2p_bob.compra.toFixed(2);
-      document.getElementById("bob_v").textContent = "Bs " + venta.toFixed(2);
-      estado(venta, prev.bob, "bob_estado");
-      prev.bob = venta;
-    } else {
-      document.getElementById("bob_c").textContent = "--";
-      document.getElementById("bob_v").textContent = "--";
+          "$" +
+          d.hace10m.blue.venta;
     }
 
+    // =====================
+    // OFICIAL
+    // =====================
 
+    let oficial =
+      d.oficial.valor_venta;
 
-// 🏦 BCB REFERENCIAL (SEGURO)
-try {
+    document
+      .getElementById("oficial_c")
+      .textContent =
 
-  if (d.p2p_bob && d.p2p_bob.compra && d.p2p_bob.venta) {
+        "$" +
+        d.oficial.valor_compra;
 
-    let compra = d.p2p_bob.compra;
-    let venta  = d.p2p_bob.venta;
+    document
+      .getElementById("oficial_v")
+      .textContent =
 
-    compra = Math.floor(compra * 10) / 10;
-    venta  = Math.ceil(venta * 10) / 10;
+        "$" +
+        oficial;
 
-    document.getElementById("bcb_c").textContent =
-      "Bs " + compra.toFixed(1);
+    estado(
+      oficial,
+      prev.oficial,
+      "oficial_estado"
+    );
 
-    document.getElementById("bcb_v").textContent =
-      "Bs " + venta.toFixed(1);
+    prev.oficial =
+      oficial;
 
-  } else {
-    document.getElementById("bcb_c").textContent = "--";
-    document.getElementById("bcb_v").textContent = "--";
-  }
+    if(d.hace10m){
 
-} catch (e) {
-  console.log("Error BCB:", e);
-}
-    
-// 💱 ARS → BOB
-if (d.p2p_bob && d.cripto_ars) {
+      document
+        .getElementById(
+          "oficial_10m_c"
+        )
+        .textContent =
 
-  let compra = d.p2p_bob.compra / d.cripto_ars.venta;
-  let venta  = d.p2p_bob.venta / d.cripto_ars.compra;
+          "$" +
+          d.hace10m.oficial.compra;
 
-  document.getElementById("arsbob_c").textContent =
-    "Bs " + compra.toFixed(5);
+      document
+        .getElementById(
+          "oficial_10m_v"
+        )
+        .textContent =
 
-  document.getElementById("arsbob_v").textContent =
+          "$" +
+          d.hace10m.oficial.venta;
+    }
 
-    "Bs " + venta.toFixed(5);
-} else {
-  document.getElementById("arsbob_c").textContent = "--";
-  document.getElementById("arsbob_v").textContent = "--";
-}
+    // =====================
+    // CRIPTO
+    // =====================
+
+    if(d.cripto_ars){
+
+      let compra =
+        d.cripto_ars.compra;
+
+      let venta =
+        d.cripto_ars.venta;
+
+      document
+        .getElementById("cripto_c")
+        .textContent =
+
+          "$" +
+          compra.toFixed(2);
+
+      document
+        .getElementById("cripto_v")
+        .textContent =
+
+          "$" +
+          venta.toFixed(2);
+
+      estado(
+        venta,
+        prev.cripto,
+        "cripto_estado"
+      );
+
+      prev.cripto =
+        venta;
+
+      if(d.hace10m){
+
+        document
+          .getElementById(
+            "cripto_10m_c"
+          )
+          .textContent =
+
+            "$" +
+            d.hace10m.cripto.compra;
+
+        document
+          .getElementById(
+            "cripto_10m_v"
+          )
+          .textContent =
+
+            "$" +
+            d.hace10m.cripto.venta;
+      }
+    }
+
+    // =====================
+    // BOB
+    // =====================
+
+    if(d.p2p_bob){
+
+      let compra =
+        d.p2p_bob.compra;
+
+      let venta =
+        d.p2p_bob.venta;
+
+      document
+        .getElementById("bob_c")
+        .textContent =
+
+          "Bs " +
+          compra.toFixed(2);
+
+      document
+        .getElementById("bob_v")
+        .textContent =
+
+          "Bs " +
+          venta.toFixed(2);
+
+      estado(
+        venta,
+        prev.bob,
+        "bob_estado"
+      );
+
+      prev.bob =
+        venta;
+
+      if(d.hace10m){
+
+        document
+          .getElementById(
+            "bob_10m_c"
+          )
+          .textContent =
+
+            "Bs " +
+            d.hace10m.bob.compra;
+
+        document
+          .getElementById(
+            "bob_10m_v"
+          )
+          .textContent =
+
+            "Bs " +
+            d.hace10m.bob.venta;
+      }
+    }
+
+    // =====================
+    // ARS → BOB
+    // =====================
+
+    if(
+      d.p2p_bob &&
+      d.cripto_ars
+    ){
+
+      let compra =
+
+        d.p2p_bob.compra /
+        d.cripto_ars.venta;
+
+      let venta =
+
+        d.p2p_bob.venta /
+        d.cripto_ars.compra;
+
+      document
+        .getElementById(
+          "arsbob_c"
+        )
+        .textContent =
+
+          "Bs " +
+          compra.toFixed(5);
+
+      document
+        .getElementById(
+          "arsbob_v"
+        )
+        .textContent =
+
+          "Bs " +
+          venta.toFixed(5);
+
+      if(d.hace10m){
+
+        document
+          .getElementById(
+            "arsbob_10m_c"
+          )
+          .textContent =
+
+            "Bs " +
+            d.hace10m.arsbob.compra;
+
+        document
+          .getElementById(
+            "arsbob_10m_v"
+          )
+          .textContent =
+
+            "Bs " +
+            d.hace10m.arsbob.venta;
+      }
+    }
 
     // hora
-    document.getElementById("hora").textContent =
-      "Actualizado: " + new Date().toLocaleTimeString();
 
+    document
+      .getElementById("hora")
+      .textContent =
 
-  } catch (e) {
+        "Actualizado: "
+        +
+        new Date()
+        .toLocaleTimeString();
+
+  }catch(e){
+
     console.log(e);
-    document.getElementById("hora").textContent = "Error conexión";
+
+    document
+      .getElementById("hora")
+      .textContent =
+
+        "Error conexión";
   }
 }
 
-// 🔥 iniciar
+// iniciar
+
 cargar();
-setInterval(cargar, 5000);
+
+setInterval(
+  cargar,
+  5000
+);
 
 </script>
 
-<script data-goatcounter="https://oscarq.goatcounter.com/count"async src="//gc.zgo.at/count.js"></script>
 </body>
-
-
 </html>
