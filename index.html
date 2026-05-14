@@ -102,12 +102,12 @@ Venta:
 
 <div class="small">
 
-10m compra:
+c anterior:
 <span id="blue_10m_c"></span>
 
 <br>
 
-10m venta:
+v anterior:
 <span id="blue_10m_v"></span>
 
 </div>
@@ -140,12 +140,12 @@ Venta:
 
 <div class="small">
 
-10m compra:
+c anterior:
 <span id="oficial_10m_c"></span>
 
 <br>
 
-10m venta:
+v anterior:
 <span id="oficial_10m_v"></span>
 
 </div>
@@ -178,12 +178,12 @@ Venta:
 
 <div class="small">
 
-10m compra:
+c anterior:
 <span id="cripto_10m_c"></span>
 
 <br>
 
-10m venta:
+v anterior:
 <span id="cripto_10m_v"></span>
 
 </div>
@@ -216,12 +216,12 @@ Venta:
 
 <div class="small">
 
-10m compra:
+c anterior:
 <span id="bob_10m_c"></span>
 
 <br>
 
-10m venta:
+v anterior:
 <span id="bob_10m_v"></span>
 
 </div>
@@ -252,12 +252,12 @@ Venta:
 
 <div class="small">
 
-10m compra:
+c anterior:
 <span id="arsbob_10m_c"></span>
 
 <br>
 
-10m venta:
+v anterior:
 <span id="arsbob_10m_v"></span>
 
 </div>
@@ -412,7 +412,7 @@ async function cargar(){
 
     prev.blue = blue;
 
-    if(d.hace10m){
+    if(d.anterior){
 
       document
         .getElementById(
@@ -421,7 +421,7 @@ async function cargar(){
         .textContent =
 
           "$" +
-          d.hace10m.blue.compra;
+          d.anterior.blue.compra;
 
       document
         .getElementById(
@@ -430,7 +430,7 @@ async function cargar(){
         .textContent =
 
           "$" +
-          d.hace10m.blue.venta;
+          d.anterior.blue.venta;
     }
 
     // =====================
@@ -463,7 +463,7 @@ async function cargar(){
     prev.oficial =
       oficial;
 
-    if(d.hace10m){
+    if(d.anterior){
 
       document
         .getElementById(
@@ -472,7 +472,7 @@ async function cargar(){
         .textContent =
 
           "$" +
-          d.hace10m.oficial.compra;
+          d.anterior.oficial.compra;
 
       document
         .getElementById(
@@ -481,7 +481,7 @@ async function cargar(){
         .textContent =
 
           "$" +
-          d.hace10m.oficial.venta;
+          d.anterior.oficial.venta;
     }
 
     // =====================
@@ -519,7 +519,7 @@ async function cargar(){
       prev.cripto =
         venta;
 
-      if(d.hace10m){
+      if(d.anterior){
 
         document
           .getElementById(
@@ -528,7 +528,7 @@ async function cargar(){
           .textContent =
 
             "$" +
-            d.hace10m.cripto.compra;
+            d.anterior.cripto.compra;
 
         document
           .getElementById(
@@ -537,7 +537,7 @@ async function cargar(){
           .textContent =
 
             "$" +
-            d.hace10m.cripto.venta;
+            d.anterior.cripto.venta;
       }
     }
 
@@ -576,7 +576,7 @@ async function cargar(){
       prev.bob =
         venta;
 
-      if(d.hace10m){
+      if(d.anterior){
 
         document
           .getElementById(
@@ -585,7 +585,7 @@ async function cargar(){
           .textContent =
 
             "Bs " +
-            d.hace10m.bob.compra;
+            d.anterior.bob.compra;
 
         document
           .getElementById(
@@ -594,7 +594,7 @@ async function cargar(){
           .textContent =
 
             "Bs " +
-            d.hace10m.bob.venta;
+            d.anterior.bob.venta;
       }
     }
 
@@ -635,7 +635,7 @@ async function cargar(){
           "Bs " +
           venta.toFixed(5);
 
-      if(d.hace10m){
+      if(d.anterior){
 
         document
           .getElementById(
@@ -644,7 +644,7 @@ async function cargar(){
           .textContent =
 
             "Bs " +
-            d.hace10m.arsbob.compra;
+            d.anterior.arsbob.compra;
 
         document
           .getElementById(
@@ -653,7 +653,7 @@ async function cargar(){
           .textContent =
 
             "Bs " +
-            d.hace10m.arsbob.venta;
+            d.anterior.arsbob.venta;
       }
     }
 

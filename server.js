@@ -1,4 +1,6 @@
-// server.js
+// =====================================
+// SERVER.JS
+// =====================================
 
 const express = require("express");
 const cors = require("cors");
@@ -16,10 +18,12 @@ app.use(cors());
 app.use(express.static(__dirname));
 
 // =====================================
-// HISTORIAL 10 MINUTOS
+// VALORES
 // =====================================
 
-let hace10m = null;
+let anterior = null;
+
+let actualGuardado = null;
 
 // =====================================
 // BINANCE
@@ -96,7 +100,6 @@ async function getP2P_BOB(){
 
   try{
 
-    // compra
     const compraData =
       await getBinance(
         "BOB",
@@ -104,7 +107,6 @@ async function getP2P_BOB(){
         3
       );
 
-    // venta
     const ventaData =
       await getBinance(
         "BOB",
@@ -143,7 +145,6 @@ async function getP2P_ARS(){
 
   try{
 
-    // compra
     const compraData =
       await getBinance(
         "ARS",
@@ -151,7 +152,6 @@ async function getP2P_ARS(){
         3
       );
 
-    // venta
     const ventaData =
       await getBinance(
         "ARS",
@@ -183,14 +183,20 @@ async function getP2P_ARS(){
 }
 
 // =====================================
-// GUARDAR HISTORIAL 10 MINUTOS
+// ACTUALIZAR VALORES
 // =====================================
 
-async function guardar10m() {
+async function actualizarAnterior(){
 
-  try {
+  try{
 
+    console.log(
+      "Verificando cambios..."
+    );
+
+    // =================================
     // API ARGENTINA
+    // =================================
 
     const r1 = await fetch(
       "https://api.bluelytics.com.ar/v2/latest"
@@ -198,12 +204,16 @@ async function guardar10m() {
 
     const d1 = await r1.json();
 
-    // cripto
+    // =================================
+    // CRIPTO
+    // =================================
 
     const cripto =
       await getP2P_ARS();
 
-    // bolivia
+    // =================================
+    // BOLIVIA
+    // =================================
 
     const p2p =
       await getP2P_BOB();
@@ -213,6 +223,7 @@ async function guardar10m() {
     // =================================
 
     let arsbob_compra = null;
+
     let arsbob_venta = null;
 
     if(
@@ -242,12 +253,12 @@ async function guardar10m() {
     }
 
     // =================================
-    // GUARDAR
+    // NUEVOS VALORES
     // =================================
 
-    hace10m = {
+    let nuevoActual = {
 
-      blue: {
+      blue:{
 
         compra:
           d1.blue.value_buy,
@@ -256,7 +267,7 @@ async function guardar10m() {
           d1.blue.value_sell
       },
 
-      oficial: {
+      oficial:{
 
         compra:
           d1.oficial.value_buy,
@@ -265,7 +276,7 @@ async function guardar10m() {
           d1.oficial.value_sell
       },
 
-      cripto: {
+      cripto:{
 
         compra:
           cripto?.compra || null,
@@ -274,7 +285,7 @@ async function guardar10m() {
           cripto?.venta || null
       },
 
-      bob: {
+      bob:{
 
         compra:
           p2p?.compra || null,
@@ -283,43 +294,163 @@ async function guardar10m() {
           p2p?.venta || null
       },
 
-      arsbob: {
+      arsbob:{
 
         compra:
           arsbob_compra,
 
         venta:
           arsbob_venta
-      },
-
-      tiempo:
-        new Date()
-          .toLocaleTimeString()
+      }
     };
 
-    console.log(
-      "Guardado 10m:",
-      hace10m.tiempo
-    );
+    // =================================
+    // PRIMERA VEZ
+    // =================================
 
-  } catch(e) {
+    if(!actualGuardado){
+
+      actualGuardado =
+        nuevoActual;
+
+      anterior = {
+
+        blue:
+          nuevoActual.blue,
+
+        oficial:
+          nuevoActual.oficial,
+
+        cripto:
+          nuevoActual.cripto,
+
+        bob:
+          nuevoActual.bob,
+
+        arsbob:
+          nuevoActual.arsbob
+      };
+    }
+
+    // =================================
+    // CAMBIOS
+    // =================================
+
+    else{
+
+      // BLUE
+
+      if(
+
+        actualGuardado.blue.venta !==
+        nuevoActual.blue.venta
+
+      ){
+
+        anterior.blue =
+          actualGuardado.blue;
+
+        console.log(
+          "Cambio BLUE"
+        );
+      }
+
+      // OFICIAL
+
+      if(
+
+        actualGuardado.oficial.venta !==
+        nuevoActual.oficial.venta
+
+      ){
+
+        anterior.oficial =
+          actualGuardado.oficial;
+
+        console.log(
+          "Cambio OFICIAL"
+        );
+      }
+
+      // CRIPTO
+
+      if(
+
+        actualGuardado.cripto.venta !==
+        nuevoActual.cripto.venta
+
+      ){
+
+        anterior.cripto =
+          actualGuardado.cripto;
+
+        console.log(
+          "Cambio CRIPTO"
+        );
+      }
+
+      // BOB
+
+      if(
+
+        actualGuardado.bob.venta !==
+        nuevoActual.bob.venta
+
+      ){
+
+        anterior.bob =
+          actualGuardado.bob;
+
+        console.log(
+          "Cambio BOB"
+        );
+      }
+
+      // ARSB0B
+
+      if(
+
+        actualGuardado.arsbob.venta !==
+        nuevoActual.arsbob.venta
+
+      ){
+
+        anterior.arsbob =
+          actualGuardado.arsbob;
+
+        console.log(
+          "Cambio ARSBOB"
+        );
+      }
+
+      // guardar actual
+
+      actualGuardado =
+        nuevoActual;
+    }
+
+  }catch(e){
 
     console.log(
-      "Error historial:",
+      "Error:",
       e
     );
   }
 }
 
-// guardar ahora
-guardar10m();
+// =====================================
+// INICIAR
+// =====================================
 
-// guardar cada 10 minutos
+actualizarAnterior();
+
+// cada 5 segundos
+
 setInterval(
 
-  guardar10m,
+  actualizarAnterior,
 
-  600000
+  5000
 );
 
 // =====================================
@@ -431,7 +562,7 @@ app.get("/dolar", async(req,res)=>{
 
       ars_bob: ars_bob,
 
-      hace10m: hace10m
+      anterior: anterior
     });
 
   }catch(e){
@@ -458,7 +589,7 @@ const PORT =
 app.listen(PORT, ()=>{
 
   console.log(
-    "Servidor en:"
+    "Servidor iniciado"
   );
 
   console.log(
