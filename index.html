@@ -18,6 +18,48 @@ content="width=device-width, initial-scale=1.0">
 
 <style>
 
+
+.modal{
+  display:none;
+  position:fixed;
+  z-index:9999;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+}
+
+.contenido{
+  width:340px;
+  height:520px;
+  margin:40px auto;
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  position:relative;
+}
+
+iframe{
+  width:100%;
+  height:100%;
+  border:none;
+}
+.cerrar{
+  position:absolute;
+  right:10px;
+  top:5px;
+  font-size:22px;
+  cursor:pointer;
+  z-index:10;
+  background:white;
+  color:black;
+  border-radius:50%;
+  padding:2px 8px;
+  font-weight:bold;
+}
+
+
 body{
   background:#0f172a;
   color:white;
@@ -277,10 +319,6 @@ v anterior:
 
 </a>
   
-<div class="card1">
-  👁
-  <img src="https://hits.sh/dolar-app-1.onrender.com.svg?style=flat-square&label=vts" />
-</div>
 
 <a href="https://wa.me/59167965805?text=Hola%20quiero%20hacer%20una%20transferencia"
    target="_blank"
@@ -299,12 +337,33 @@ v anterior:
    💬 Conssultas.
 
 
-
 </a>
+<!-- BOTÓN -->
+<button onclick="abrirCalc()">🧮 Calculadora</button>
+
+<!-- VENTANA EMERGENTE -->
+<div id="modalCalc" class="modal">
+
+  <div class="contenido">
+
+    <span class="cerrar" onclick="cerrarCalc()">✖</span>
+
+    <!-- CARGA calculadora.html -->
+    <iframe src="calculadora.html"></iframe>
+
+  </div>
+
+</div>
 
 <p id="hora"></p>
 <script>
+function abrirCalc(){
+  document.getElementById("modalCalc").style.display = "block";
+}
 
+function cerrarCalc(){
+  document.getElementById("modalCalc").style.display = "none";
+}
 
 // valores anteriores
 
