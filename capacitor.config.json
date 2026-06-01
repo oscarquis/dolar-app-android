@@ -1,0 +1,9 @@
+{
+  "appId": "com.oscarquis.dolarenvivo",
+  "appName": "Dolar en Vivo",
+  "webDir": "www",
+  "server": {
+    "url": "https://www.dolarenvivo.com",
+    "cleartext": false
+  }
+}
